@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Copy Number</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a sample page.</p>
+    <button id="copy-button">복사</button>
+    <script>
+        document.getElementById('copy-button').addEventListener('click', () => {
+            const numberToCopy = '1234567890'; // 복사할 번호
+            const textarea = document.createElement('textarea');
+            textarea.value = numberToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('복사되었습니다. ');
+        });
+    </script>
 </body>
 </html>
